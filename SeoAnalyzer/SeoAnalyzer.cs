@@ -18,8 +18,11 @@ namespace SeoAnalyzer
         public string WebUrl { get; set; }
         public long MainLoadTime { get; set; }
 
-        public SeoAnalyzer(string url, string pageHtml)
+        public SeoAnalyzer(string url)
         {
+            PageHtml = string.Empty;
+            
+
             var watch = new Stopwatch();
             watch.Start();
             LoadPageHtml(url);
@@ -28,7 +31,6 @@ namespace SeoAnalyzer
             MainLoadTime = watch.ElapsedMilliseconds;
 
             WebUrl = url;
-            PageHtml = pageHtml;
         }
 
         public void LoadPageHtml(string url)
